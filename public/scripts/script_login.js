@@ -43,7 +43,7 @@ fetch("https://geek-on.herokuapp.com/usuarios/login", settings)
         loginForm.appendChild(divErrores);
 
     } else {
-        window.location.replace("http://localhost:3030/")
+        window.location.replace("https://geek-on-front.herokuapp.com/")
     }
 })
 .catch(function(error){
