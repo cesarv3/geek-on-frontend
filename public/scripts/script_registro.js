@@ -24,7 +24,7 @@ const settings = {
     "body": JSON.stringify(data)
 }
 
-fetch("http://localhost:3000/usuarios/registro", settings)
+fetch("https://geek-on.herokuapp.com/usuarios/registro", settings)
 .then(res => {
     //console.log(res);
     return res.json();

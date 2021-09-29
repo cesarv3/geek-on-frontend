@@ -1,7 +1,7 @@
 let contenedor = document.querySelector('.contenedor');
 const url =  location.href;
 const id = url.substring(url.lastIndexOf('/') + 1);
-let product = fetch("http://localhost:3000/productos/"+id)
+let product = fetch("https://geek-on.herokuapp.com/productos/"+id)
 .then(response => {
     return response.json();
 })
