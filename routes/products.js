@@ -11,6 +11,14 @@ router.get('/categoria/:id',(req,res) => {
     res.render('productsCategoria.ejs');
 })
 
+router.get('/crear',(req,res) => {
+    res.render('product-create-form');
+});
+
+router.post('/crear',(req,res) => {
+    res.render('product-create-form');
+});
+
 
 
 
