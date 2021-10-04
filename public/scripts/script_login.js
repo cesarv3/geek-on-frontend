@@ -14,7 +14,7 @@ const settings = {
     "body": JSON.stringify(data)
 }
 //No funciona usando el boton, por el POST supongo
-// fetch("https://geek-on.herokuapp.com/usuarios/25")
+// fetch("http://localhost:3000/usuarios/25")
 // .then(response => {
 //     return response.json()
 // })
@@ -25,7 +25,7 @@ const settings = {
 //     console.log(e);
 // })
 
-fetch("https://geek-on.herokuapp.com/usuarios/login", settings)
+fetch("http://localhost:3000/usuarios/login", settings)
 .then(res => {
     //console.log(res);
     return res.json();
@@ -43,7 +43,7 @@ fetch("https://geek-on.herokuapp.com/usuarios/login", settings)
         loginForm.appendChild(divErrores);
 
     } else {
-        window.location.replace("https://geek-on-front.herokuapp.com/")
+        window.location.replace("process.env.url_frontend_produccion")
     }
 })
 .catch(function(error){

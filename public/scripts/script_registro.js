@@ -14,7 +14,7 @@ const data = {
     "rol": rol.value,
     "email": email.value,
     "password": password.value,
-    "avatar": avatar.files[0]
+    "avatar": formData
 }
 const settings = {
     "method": "POST",
@@ -24,7 +24,7 @@ const settings = {
     "body": JSON.stringify(data)
 }
 
-fetch("https://geek-on.herokuapp.com/usuarios/registro", settings)
+fetch("http://localhost:3000/usuarios/registro", settings)
 .then(res => {
     //console.log(res);
     return res.json();

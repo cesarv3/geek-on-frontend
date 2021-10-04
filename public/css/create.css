@@ -259,6 +259,14 @@ img {
     display: none;
 }
 
+.img-producto{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px;
+    border: solid 2px black;
+    
+}
 
 @media(min-width: 768px) {
 

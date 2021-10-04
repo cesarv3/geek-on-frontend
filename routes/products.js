@@ -3,13 +3,6 @@ const { response } = require('express');
 const express = require('express');
 const router = express.Router();
 
-router.get('/:id',(req,res) => {
-    res.render('productDetail.ejs');
-})
-
-router.get('/categoria/:id',(req,res) => {
-    res.render('productsCategoria.ejs');
-})
 
 router.get('/crear',(req,res) => {
     res.render('product-create-form');
@@ -18,6 +11,20 @@ router.get('/crear',(req,res) => {
 router.post('/crear',(req,res) => {
     res.render('product-create-form');
 });
+
+router.get('/actualizar/:id',(req,res) => {
+    res.render('product-update-form');
+})
+
+router.get('/:id',(req,res) => {
+    res.render('productDetail.ejs');
+})
+
+router.get('/categoria/:id',(req,res) => {
+    res.render('productsCategoria.ejs');
+})
+
+
 
 
 

@@ -1,13 +1,14 @@
 let contenedor = document.querySelector('.contenedor');
 const url =  location.href;
 const id = url.substring(url.lastIndexOf('/') + 1);
-let product = fetch("https://geek-on.herokuapp.com/productos/"+id)
+let objProducto = {};
+let product = fetch("http://localhost:3000/productos/"+id)
 .then(response => {
     return response.json();
 })
 .then(prod => {
-
-    console.log(prod);
+    objProducto = prod;
+    //console.log(prod);
 contenedor.innerHTML += 
 `
 <div class="vista768">
@@ -50,11 +51,11 @@ contenedor.innerHTML +=
                 </div>
                <!--  if (locals.isLogged) { -->
                     <div class="content-button">
-                        <form class="btn-size" action="/products//edit"> <!--product.id-->
+                        <form class="btn-size" action="/productos/actualizar/${prod.data.id}"> <!--product.id-->
                             <button class="btn-productCart-edit">EDITAR</button>
                         </form>
-                        <form class="btn-size" action="/products/?_method=DELETE" method="POST"> <!--product.id -->
-                            <button class="btn-productCart-delete" type="submit" >ELIMINAR</button>
+                        <form class="btn-size"  onsubmit="return doActionDelete();"  method="DELETE"> <!--product.id -->
+                            <button class="btn-productCart-delete" type="submit"  >ELIMINAR</button>
                         </form>
                     </div>
               <!-- else{%>-->   
@@ -94,3 +95,26 @@ contenedor.innerHTML +=
         </div>
 `
 })
+
+function doActionDelete(){
+    let confirmacion = confirm('Are you sure you want to delete this item?');
+    const url = window.location.href;
+    const id = url.substring(url.lastIndexOf('/') + 1);
+    console.log(objProducto);
+    const imgurl = objProducto.data.imagen;
+    const nombreImg = imgurl.substring(imgurl.lastIndexOf('/') + 1);
+    const publicId = nombreImg.split('.');
+    if(confirmacion){
+        fetch("http://localhost:3000/productos/"+id,{
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify(publicId)
+            
+        })
+        alert('Elemento eliminado');
+        window.location.replace("http://localhost:3030/")
+    }
+    return false;
+} 

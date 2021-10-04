@@ -9,11 +9,11 @@
                 <ul class="navbar-hamburguer">
                     <% if (locals.isLogged) { %>
                         <li class="li-hover "><a href="/users/list">Lista de usuarios</a></li>
-                        <li class="li-hover "><a href="/products/create">Crear producto</a></li>
+                        <li class="li-hover "><a href="/productos/crear">Crear producto</a></li>
                         <li class="li-hover "><a href="/users/logout">Salir / Logout</a></li>
                     <%} else{%>
                         <li class="li-hover "><a href="/usuarios/login">Iniciar sesion</a></li>
-                        <li class="li-hover "><a href="/usuarios/registro">Crear cuenta</a></li>                        
+                        <li class="li-hover "><a href="/usuarios/registro">Crear cuenta</a></li>
                     <%}%>
                     
                 </ul>
