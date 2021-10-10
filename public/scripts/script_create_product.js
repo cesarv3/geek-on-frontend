@@ -30,8 +30,7 @@ function doActionRegistro(){
     const nombre = document.querySelector('#name');
     const price = document.querySelector('#price');
     const discount = document.querySelector('#discount');
-    const image = document.querySelector('#image');
-    const image_img = document.querySelector('#img-prod');        
+    const image = document.querySelector('#image');            
     const category = document.querySelector('#category');
     const estatus = document.querySelector('#estatus');
     const description = document.querySelector('#description');
@@ -57,20 +56,21 @@ function doActionRegistro(){
     }
 
     if(errores.length > 0){
-        //busco el div con el id errores
-        let contenedor_errores = document.querySelector('#errores');
-        contenedor_errores.innerHTML = "";
-        for(let x =0; x < errores.length; x++){
-            const parrafo = document.createElement('p');
-            parrafo.innerText = errores[x];
-            parrafo.style.color = 'red';
-            contenedor_errores.appendChild(parrafo);
-        }
-        errores = [];
         
-        return false;
-    }
-    
+            //busco el div con el id errores
+            let contenedor_errores = document.querySelector('#errores');
+            contenedor_errores.innerHTML = "";
+            for(let x =0; x < errores.length; x++){
+                const parrafo = document.createElement('p');
+                parrafo.innerText = errores[x];
+                parrafo.style.color = 'red';
+                contenedor_errores.appendChild(parrafo);
+            }
+            errores = [];
+            
+            return false;
+        
+    } else {        
     const data = {
         "nombre": nombre.value,
         "price": price.value,
@@ -83,8 +83,7 @@ function doActionRegistro(){
     formData.append('image', image.files[0]);
     formData.append('data',JSON.stringify(data));
     const settings = {
-        "method": "POST",
-        
+        "method": "POST",        
         "body": formData
     }
 
@@ -93,7 +92,12 @@ function doActionRegistro(){
         return res.json();
     })
     .then(info => {
-        if(info.status == 200){
+        console.log(info);
+        if(info.status == 400){
+            errores = info.errors;
+            cargarErrores(errores)
+        }
+        else if(info.status == 200){
             alert("Elemento creado con éxito");
             nombre.value = "";
             price.value = "";
@@ -105,7 +109,27 @@ function doActionRegistro(){
         }
         console.log(info);
     })
+    }        
     return false;
+}
+
+function cargarErrores(errores){
+    if(errores.length > 0){
+        //busco el div con el id errores
+        let contenedor_errores = document.querySelector('#errores');
+        console.log(contenedor_errores);
+        contenedor_errores.innerText = "";
+        contenedor_errores.innerHTML = "";
+        for(let x =0; x < errores.length; x++){
+            const parrafo = document.createElement('p');
+            parrafo.innerText = errores[x];
+            parrafo.style.color = 'red';
+            contenedor_errores.appendChild(parrafo);
+        }
+        errores = [];
+        
+        return false;
+    }
 }
 
 function cargarImagen() {    

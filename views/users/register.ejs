@@ -31,7 +31,10 @@
                 </div>
             </div>
 
-            <form onsubmit="return doActionRegistro();"  method="POST">
+            <form onsubmit="return doActionRegistro();"  method="POST" enctype="multipart/form-data">
+                <div id="errores">
+
+                </div>
                 <label for="first_name">Nombre</label>
 			    <input  type="text" 
                         id="first_name" 
@@ -41,13 +44,20 @@
                         value="<%= locals.oldData ? oldData.first_name : null %>">
                 
 
-                <label for="last_name">Apellido</label>
+                <label for="last_name">Apellido Paterno</label>
 				<input  type="text" 
                         id="last_name" 
                         name="last_name" 
-                        placeholder="Ejemplo: Valdez Castro" 
+                        placeholder="Ejemplo: Valdez" 
                         class="form-input"
-                        value="<%= locals.oldData ? oldData.last_name : null %>">                
+                        value="<%= locals.oldData ? oldData.last_name : null %>">
+                <label for="a_materno">Apellido Materno</label>
+                <input  type="text" 
+                        id="a_materno" 
+                        name="a_materno" 
+                        placeholder="Ejemplo: Castro" 
+                        class="form-input"
+                        value="<%= locals.oldData ? oldData.last_name : null %>">
 
                 <label for="email" class="form-label">Email</label>
 				<input  type="text" 
@@ -68,8 +78,7 @@
                 </div>                
 
                 <label for="category" class="form-label">Categoría:</label>
-				<select name="category" id="category" class="form-input">
-					<option value="">Elegir opción</option>
+				<select name="category" id="category" class="form-input">					
                     <%  
                         let options = ['Usuario'];
 		            %>
@@ -84,19 +93,18 @@
                 
 
                 <label for="avatar">Foto de perfil</label>
-                <input type="file" id="archivo" class="form-input">
-                    <input  type="text" 
-                            id="avatar" 
-                            name="avatar" 
-                            placeholder="Ejemplo: coloca una direccion URL" 
-                            class="form-input"
-                            value="https://aui.atlassian.com/aui/latest/docs/images/avatar-person.svg"> 
-                <label for="" style="font-size: 10px; padding: 0; margin: 0;">*Coloca una URL de tu imagen sino deja la predeterminada</label>            
+                <input type="file" 
+                       id="avatar" 
+                       class="form-input"
+                       name="avatar">
+                   <button type="button" onclick="cargarImagen();">Mostrar</button>
+                   <div class="img-avatar"></div>
+                        
                 
                 
 
                 <div class="btn-container">
-                    <button class="btn-login" type="submit" >CREAR CUENTA</button>
+                    <button class="btn-login" type="submit" >Crear Cuenta</button>
                 </div>
             </form>
     

@@ -1,13 +1,56 @@
+let errores = [];
+function validateEmail(email) {
+    const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return res.test(String(email).toLowerCase());
+  }
+
 function doActionRegistro() {
+let formData = new FormData();
 const email = document.querySelector('#email');
 const password = document.querySelector('#password')
 const nombre = document.querySelector('#first_name');
 const apellido = document.querySelector('#last_name');
 const rol = document.querySelector('#category');
-const avatar = document.querySelector('#archivo');
-const formData = new FormData();
-formData.append('avatar', avatar.files[0]);
-
+const avatar = document.querySelector('#avatar');
+if(email.value == ""){
+    errores.push("El email no puede estar vacio");
+} else if(!validateEmail(email.value)){
+    errores.push("El email es invalido");
+}
+if(nombre.value == ""){
+    errores.push("El nombre no puede estar vacio");
+} else if(nombre.value.length < 5){
+    errores.push("El nombre debe contener al menos 5 caracteres");
+}
+if(apellido.value == ""){
+    errores.push("El apellido no puede estar vacio");
+} else if(apellido.value.length < 5){
+    errores.push("El apellido debe contener al menos 5 caracteres");
+}
+if(password.value == ""){
+    errores.push("El password no puede estar vacio");
+} else if(password.value.length < 6){
+    errores.push("El password debe contener al menos 6 caracteres");
+}
+if(avatar.value == ""){
+    errores.push("La imagen no puede estar vacia");
+}
+if(errores.length > 0){    
+        //busco el div con el id errores
+        let contenedor_errores = document.querySelector('#errores');
+        contenedor_errores.innerHTML = "";
+        for(let x =0; x < errores.length; x++){
+            const parrafo = document.createElement('p');
+            parrafo.innerText = errores[x];
+            parrafo.style.color = 'red';
+            contenedor_errores.appendChild(parrafo);
+        }
+        errores = [];
+        
+        return false;
+    
+} else {
+    
 const data = {
     "nombre": nombre.value,
     "apellido": apellido.value,
@@ -16,12 +59,11 @@ const data = {
     "password": password.value,
     "avatar": formData
 }
+formData.append('avatar', avatar.files[0]);
+formData.append('data',JSON.stringify(data));
 const settings = {
-    "method": "POST",
-    "headers": {
-        "content-type": "application/json",        
-    },
-    "body": JSON.stringify(data)
+    "method": "POST",    
+    "body": formData
 }
 
 fetch("http://localhost:3000/usuarios/registro", settings)
@@ -30,8 +72,62 @@ fetch("http://localhost:3000/usuarios/registro", settings)
     return res.json();
 })
 .then(info => {
-    console.log(info)
-})
-    console.log(data);
+    if(info.status == 400){
+        errores = info.errores;
+        cargarErrores(errores);
+    } else if(info.status == 200){
+        alert("Usuario registrado con exito");
+        nombre.value = "";
+        apellido.value = "";
+        email.value = "";
+        password.value = "";
+
+    }
+    console.log(info);
+})    
+
+}
+
+
+
     return false;
 }
+
+function cargarErrores(errores) {
+    if(errores.length > 0){
+        //busco el div con el id errores
+        let contenedor_errores = document.querySelector('#errores');
+        contenedor_errores.innerHTML = "";
+        for(let x =0; x < errores.length; x++){
+            const parrafo = document.createElement('p');
+            parrafo.innerText = errores[x];
+            parrafo.style.color = 'red';
+            contenedor_errores.appendChild(parrafo);
+        }
+        errores = [];
+        
+        return false;
+    }
+}
+
+
+function cargarImagen() {    
+    var file = document.getElementById('avatar').files[0];    
+    var reader  = new FileReader();
+    // it's onload event and you forgot (parameters)
+    if(file != undefined){
+        reader.onload = function(e)  {
+            var image = document.createElement("img");
+            // the result image data
+            image.src = e.target.result;
+            let contenedor_img = document.querySelector('.img-avatar');
+            if(contenedor_img.childElementCount > 0){
+                contenedor_img.innerHTML = "";
+            }        
+            contenedor_img.appendChild(image)            
+         }
+         // you have to declare the file loading
+         reader.readAsDataURL(file);
+    }
+   
+ }

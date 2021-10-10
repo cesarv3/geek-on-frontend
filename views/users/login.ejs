@@ -25,9 +25,15 @@
                         <a href="/usuarios/registro"><p>Crear Cuenta</p></a>
                     </div>
                 </div>
+
+                <div class="tab-items">
+                    <div id="errores" class="marco">
+                                       
+                    </div>
+                </div>
             
 
-            <form id="loginForm" onsubmit="return doActionLogin();"  method="POST" >
+            <form id="loginForm" onsubmit="return doActionLogin();"  method="POST" enctype="multipart/form-data">
                 <!--  -->
 
                 <label for="email" class="form-label">Email</label>
