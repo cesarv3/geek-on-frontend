@@ -32,20 +32,20 @@ function ContentRowTop(){
 
 useEffect( () => {
     function getProductos() {
-        return fetch("http://localhost:4000/productos/")
+        return fetch("https://geek-on.herokuapp.com/productos/")
         .then(resp => {
             return resp.json();
         })
     };
 
     function getUsuarios(){
-        return fetch("http://localhost:4000/usuarios/")
+        return fetch("https://geek-on.herokuapp.com/usuarios/")
         .then(resp => {
             return resp.json();
         })    
     };
     function getCategorias(){
-        return fetch("http://localhost:4000/categorias/")
+        return fetch("https://geek-on.herokuapp.com/categorias/")
         .then(resp => {
             return resp.json();
         })

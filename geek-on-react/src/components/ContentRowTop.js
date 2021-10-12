@@ -6,7 +6,7 @@ function ContentRowTop(){
 	let [producto,setProducto] = useState({});
 	
 	useEffect(()=>{
-		fetch("http://localhost:4000/productos/last")
+		fetch("https://geek-on.herokuapp.com/productos/last")
 		.then(resp => {
 			return resp.json();
 		})

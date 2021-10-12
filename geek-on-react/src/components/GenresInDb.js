@@ -14,13 +14,13 @@ class GenresInDb extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:4000/categorias')
+        fetch('https://geek-on.herokuapp.com/categorias')
         .then(response => response.json())
         .then(res => {
             console.log(res.data);
             res.data.forEach(element => {
                 //console.log(element);
-                fetch('http://localhost:4000/productos/categoria/'+element.id)
+                fetch('https://geek-on.herokuapp.com/productos/categoria/'+element.id)
                 .then(resp => resp.json())
                 .then(productos => {
                     //console.log(productos);
