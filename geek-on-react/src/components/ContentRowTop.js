@@ -46,7 +46,7 @@ function ContentRowTop(){
 									</div>									
 									<h3>{producto?.data?.nombre}</h3>
 									<p>{producto?.data?.descripcion}</p>
-									<a className="btn btn-danger" target="_blank" rel="nofollow" href={"http://localhost:3030/productos/"+producto?.data?.id}>Detalle del producto</a>
+									<a className="btn btn-danger" target="_blank" rel="nofollow" href={"https://geek-on.herokuapp.com/productos/"+producto?.data?.id}>Detalle del producto</a>
 								</div>
 							</div>
 						</div>
