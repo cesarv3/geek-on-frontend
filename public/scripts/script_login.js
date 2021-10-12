@@ -41,7 +41,7 @@ const settings = {
     "body": JSON.stringify(data)
 }
 //No funciona usando el boton, por el POST supongo
-// fetch("http://localhost:3000/usuarios/25")
+// fetch("http://localhost:4000/usuarios/25")
 // .then(response => {
 //     return response.json()
 // })
@@ -52,7 +52,7 @@ const settings = {
 //     console.log(e);
 // })
 
-fetch("http://localhost:3000/usuarios/login", settings)
+fetch("http://localhost:4000/usuarios/login", settings)
 .then(res => {
     //console.log(res);
     return res.json();

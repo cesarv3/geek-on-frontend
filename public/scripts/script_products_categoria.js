@@ -2,7 +2,7 @@ console.log(location.href);
 const url =  location.href;
 const id = url.substring(url.lastIndexOf('/') + 1);
 
-fetch("http://localhost:3000/productos/categoria/" +id)
+fetch("http://localhost:4000/productos/categoria/" +id)
         .then((response) => {
           return response.json();
         })

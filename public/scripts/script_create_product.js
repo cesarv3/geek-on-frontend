@@ -3,7 +3,7 @@ const selectItemCategorias = document.querySelector('#category');
 //var validator = require('validator');
 
 let errores = [];
-const categorias = fetch("http://localhost:3000/categorias/")
+const categorias = fetch("http://localhost:4000/categorias/")
 .then(res => {
     return res.json();
 })
@@ -87,7 +87,7 @@ function doActionRegistro(){
         "body": formData
     }
 
-    fetch("http://localhost:3000/productos/crear", settings)
+    fetch("http://localhost:4000/productos/crear", settings)
     .then(res => {
         return res.json();
     })

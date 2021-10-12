@@ -2,7 +2,7 @@ let contenedor = document.querySelector('.contenedor');
 const url =  location.href;
 const id = url.substring(url.lastIndexOf('/') + 1);
 let objProducto = {};
-let product = fetch("http://localhost:3000/productos/"+id)
+let product = fetch("http://localhost:4000/productos/"+id)
 .then(response => {
     return response.json();
 })
@@ -105,7 +105,7 @@ function doActionDelete(){
     const nombreImg = imgurl.substring(imgurl.lastIndexOf('/') + 1);
     const publicId = nombreImg.split('.');
     if(confirmacion){
-        fetch("http://localhost:3000/productos/"+id,{
+        fetch("http://localhost:4000/productos/"+id,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

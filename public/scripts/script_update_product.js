@@ -1,7 +1,7 @@
 const selectItemCategorias = document.querySelector('#category');
 
 let errores = [];
-const categorias = fetch("http://localhost:3000/categorias/")
+const categorias = fetch("http://localhost:4000/categorias/")
 .then(res => {
     return res.json();
 })
@@ -24,7 +24,7 @@ estatuses.map(elemento => {
     })
     const url =  location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
-    let product = fetch("http://localhost:3000/productos/"+id)
+    let product = fetch("http://localhost:4000/productos/"+id)
     .then(response => {
         return response.json();
     }).then(prod => {
@@ -129,7 +129,7 @@ function doActionRegistro(){
         "body": formData
     }
     console.log(objProducto.data);
-    fetch("http://localhost:3000/productos/actualizar/"+objProducto.data.id, settings)
+    fetch("http://localhost:4000/productos/actualizar/"+objProducto.data.id, settings)
     .then(res => {
         return res.json();
     })
