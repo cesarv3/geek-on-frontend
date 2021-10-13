@@ -114,7 +114,7 @@ function doActionDelete(){
             
         })
         alert('Elemento eliminado');
-        window.location.replace("https://geek-on.herokuapp.com/")
+        window.location.replace("https://geek-on-front.herokuapp.com/")
     }
     return false;
 } 
