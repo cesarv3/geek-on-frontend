@@ -3,7 +3,7 @@ const selectItemCategorias = document.querySelector('#category');
 //var validator = require('validator');
 
 let errores = [];
-const categorias = fetch("http://localhost:4000/categorias/")
+const categorias = fetch("https://geek-on.herokuapp.com/categorias/")
 .then(res => {
     return res.json();
 })
@@ -87,7 +87,7 @@ function doActionRegistro(){
         "body": formData
     }
 
-    fetch("http://localhost:4000/productos/crear", settings)
+    fetch("https://geek-on.herokuapp.com/productos/crear", settings)
     .then(res => {
         return res.json();
     })

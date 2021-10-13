@@ -66,7 +66,7 @@ const settings = {
     "body": formData
 }
 
-fetch("http://localhost:4000/usuarios/registro", settings)
+fetch("https://geek-on.herokuapp.com/usuarios/registro", settings)
 .then(res => {
     //console.log(res);
     return res.json();

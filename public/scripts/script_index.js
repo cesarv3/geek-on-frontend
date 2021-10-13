@@ -1,11 +1,11 @@
-let categorias = fetch("http://localhost:4000/categorias/")
+let categorias = fetch("https://geek-on.herokuapp.com/categorias/")
   .then((res) => {
     return res.json();
   })
   .then((data) => {
     data.data.map((cat) => {
       
-      fetch("http://localhost:4000/productos/categoria/" + cat.id)
+      fetch("https://geek-on.herokuapp.com/productos/categoria/" + cat.id)
         .then((response) => {          
           return response.json();
         })
