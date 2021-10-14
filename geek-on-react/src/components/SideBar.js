@@ -32,7 +32,7 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="https://geek-on-front/productos/crear/">
+                    <a className="nav-link collapsed" href="https://geek-on-front.herokuapp.com/productos/crear/">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Crear Producto</span>
                     </a>                    
