@@ -54,6 +54,7 @@ function Movie() {
                   <th>Categoria</th>
                   <th>Precio</th>
                   <th>Estatus</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
 
