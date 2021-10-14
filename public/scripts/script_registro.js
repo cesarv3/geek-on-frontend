@@ -56,7 +56,7 @@ const data = {
     "apellido": apellido.value,
     "rol": rol.value,
     "email": email.value,
-    "password": password.value,
+    "contra": password.value,
     "avatar": formData
 }
 formData.append('avatar', avatar.files[0]);
