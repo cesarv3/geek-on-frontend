@@ -36,7 +36,12 @@ function eliminar(producto){
   .then(resp => {
     resp.json()
   })
-  .then(window.location.replace("https://dashboard-geek-on.herokuapp.com/"));
+  .then(eliminado => {
+    console.log(eliminado);
+    window.location.replace("https://dashboard-geek-on.herokuapp.com/")
+  }
+    
+    );
 }
 
 function actualizar(producto){
