@@ -11,7 +11,9 @@ const rutasIndex = require('./routes/index');
 const rutasProductos = require('./routes/products');
 const rutasUsuarios = require('./routes/usuarios');
 const methodOverride = require('method-override');
-app.use(cors());
+app.use(cors({
+    origin: "*"
+}));
 //Configuracion para realizar POST
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }));
