@@ -10,6 +10,7 @@ const email = document.querySelector('#email');
 const password = document.querySelector('#password')
 const nombre = document.querySelector('#first_name');
 const apellido = document.querySelector('#last_name');
+const a_materno = document.querySelector('#a_materno');
 const rol = document.querySelector('#category');
 const avatar = document.querySelector('#avatar');
 if(email.value == ""){
@@ -24,9 +25,10 @@ if(nombre.value == ""){
 }
 if(apellido.value == ""){
     errores.push("El apellido no puede estar vacio");
-} else if(apellido.value.length < 5){
-    errores.push("El apellido debe contener al menos 5 caracteres");
-}
+} 
+if(a_materno.value == ""){
+    errores.push("El apellido materno no puede estar vacio");
+} 
 if(password.value == ""){
     errores.push("El password no puede estar vacio");
 } else if(password.value.length < 6){
@@ -54,10 +56,10 @@ if(errores.length > 0){
 const data = {
     "nombre": nombre.value,
     "apellido": apellido.value,
+    "aMaterno": a_materno.value,
     "rol": rol.value,
     "email": email.value,
-    "password": password.value,
-    "avatar": formData
+    "password": password.value    
 }
 formData.append('avatar', avatar.files[0]);
 formData.append('data',JSON.stringify(data));

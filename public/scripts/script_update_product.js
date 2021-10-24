@@ -135,7 +135,7 @@ function doActionRegistro(){
     })
     .then(info => {
         if(info.status == 200){
-            alert("Elemento creado con éxito");
+//            alert("Elemento creado con éxito");
             nombre.value = "";
             price.value = "";
             discount.value = "5";
@@ -143,6 +143,7 @@ function doActionRegistro(){
             category.value = "5";
             estatus.value = "agotado"
             description.value = "";
+            window.location.replace("https://dashboard-geek-on.herokuapp.com/")
         }
         console.log(info);
     })

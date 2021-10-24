@@ -1,6 +1,7 @@
 //Requerimos express, quien se encarga de ejecutar el servidor web
 const express = require('express');
 var bodyParser = require('body-parser')
+const cors = require('cors');
 const path    = require('path');
 const publicPath = path.resolve(__dirname, './public');
 const app = express();
@@ -10,7 +11,7 @@ const rutasIndex = require('./routes/index');
 const rutasProductos = require('./routes/products');
 const rutasUsuarios = require('./routes/usuarios');
 const methodOverride = require('method-override');
-
+app.use(cors());
 //Configuracion para realizar POST
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }));

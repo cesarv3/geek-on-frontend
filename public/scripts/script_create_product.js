@@ -84,7 +84,8 @@ function doActionRegistro(){
     formData.append('data',JSON.stringify(data));
     const settings = {
         "method": "POST",        
-        "body": formData
+        "body": formData,
+        'mode': 'cors'        
     }
 
     fetch("https://geek-on.herokuapp.com/productos/crear", settings)
@@ -108,6 +109,8 @@ function doActionRegistro(){
             description.value = "";
         }
         console.log(info);
+    }).catch(error => {
+        console.log(error);
     })
     }        
     return false;
