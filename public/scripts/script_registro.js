@@ -62,8 +62,7 @@ const data = {
     "aMaterno": aMaterno.value,
     "rol_id": rol_id.value,
     "email": email.value,
-    "password": password.value,
-    "avatar": formData
+    "password": password.value    
 }
 formData.append('avatar', avatar.files[0]);
 formData.append('data',JSON.stringify(data));
