@@ -35,26 +35,26 @@
                 <div id="errores">
 
                 </div>
-                <label for="first_name">Nombre</label>
+                <label for="nombre">Nombre</label>
 			    <input  type="text" 
-                        id="first_name" 
-                        name="first_name" 
+                        id="nombre" 
+                        name="nombre" 
                         placeholder="Ejemplo: Evelyn" 
                         class="form-input"
-                        value="<%= locals.oldData ? oldData.first_name : null %>">
+                        value="<%= locals.oldData ? oldData.nombre : null %>">
                 
 
-                <label for="last_name">Apellido Paterno</label>
+                <label for="aPaterno">Apellido Paterno</label>
 				<input  type="text" 
-                        id="last_name" 
-                        name="last_name" 
+                        id="aPaterno" 
+                        name="aPaterno" 
                         placeholder="Ejemplo: Valdez" 
                         class="form-input"
                         value="<%= locals.oldData ? oldData.last_name : null %>">
-                <label for="a_materno">Apellido Materno</label>
+                <label for="aMaterno">Apellido Materno</label>
                 <input  type="text" 
-                        id="a_materno" 
-                        name="a_materno" 
+                        id="aMaterno" 
+                        name="aMaterno" 
                         placeholder="Ejemplo: Castro" 
                         class="form-input"
                         value="<%= locals.oldData ? oldData.last_name : null %>">
@@ -77,8 +77,8 @@
                     <span style="font-size: 10px; padding-left: 5px;">Mostrar</span>
                 </div>                
 
-                <label for="category" class="form-label">Categoría:</label>
-				<select name="category" id="category" class="form-input">					
+                <label for="rol_id" class="form-label">Categoría:</label>
+				<select name="rol_id" id="rol_id" class="form-input">					
                     <%  
                         let options = ['Usuario'];
 		            %>

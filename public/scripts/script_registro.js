@@ -8,10 +8,10 @@ function doActionRegistro() {
 let formData = new FormData();
 const email = document.querySelector('#email');
 const password = document.querySelector('#password')
-const nombre = document.querySelector('#first_name');
-const apellido = document.querySelector('#last_name');
-const materno = document.querySelector('#a_materno');
-const rol = document.querySelector('#category');
+const nombre = document.querySelector('#nombre');
+const aPaterno = document.querySelector('#aPaterno');
+const aMaterno = document.querySelector('#aMaterno');
+const rol_id = document.querySelector('#rol_id');
 const avatar = document.querySelector('#avatar');
 if(email.value == ""){
     errores.push("El email no puede estar vacio");
@@ -58,18 +58,19 @@ if(errores.length > 0){
     
 const data = {
     "nombre": nombre.value,
-    "apellido": apellido.value,
-    "materno": materno.value,
-    "rol": rol.value,
+    "aPaterno": aPaterno.value,
+    "aMaterno": aMaterno.value,
+    "rol_id": rol_id.value,
     "email": email.value,
-    "contra": password.value,
+    "password": password.value,
     "avatar": formData
 }
 formData.append('avatar', avatar.files[0]);
 formData.append('data',JSON.stringify(data));
 const settings = {
-    "method": "POST",    
-    "body": formData
+    "method": "POST",        
+    "body": formData,
+    'mode': 'cors'
 }
 
 fetch("https://geek-on.herokuapp.com/usuarios/registro", settings)
