@@ -23,12 +23,10 @@ if(nombre.value == ""){
 } else if(nombre.value.length < 2){
     errores.push("El nombre debe contener al menos 2 caracteres");
 }
-if(apellido.value == ""){
+if(aPaterno.value == ""){
     errores.push("El apellido no puede estar vacio");
-} else if(apellido.value.length < 2){
-    errores.push("El apellido debe contener al menos 2 caracteres");
 }
-if(materno.value == ""){
+if(aMaterno.value == ""){
     errores.push("El apellido materno no puede estar vacio");
 }
 
@@ -84,7 +82,8 @@ fetch("https://geek-on.herokuapp.com/usuarios/registro", settings)
     } else if(info.status == 200){
         alert("Usuario registrado con exito");
         nombre.value = "";
-        apellido.value = "";
+        aPaterno.value = "";
+        aMaterno.value = "";
         email.value = "";
         password.value = "";
         materno.value = ""
