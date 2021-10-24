@@ -66,8 +66,7 @@ formData.append('avatar', avatar.files[0]);
 formData.append('data',JSON.stringify(data));
 const settings = {
     "method": "POST",        
-    "body": formData,
-    'mode': 'cors'
+    "body": formData    
 }
 
 fetch("https://geek-on.herokuapp.com/usuarios/registro", settings)
