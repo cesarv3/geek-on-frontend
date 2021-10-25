@@ -68,6 +68,7 @@ formData.append('data',JSON.stringify(data));
 const settings = {
     "method": "POST",        
     "body": formData,
+    "Content-Type": "multipart/form-data",
     'mode': 'cors'
 }
 
