@@ -60,7 +60,8 @@ const data = {
     "aMaterno": aMaterno.value,
     "rol_id": rol_id.value,
     "email": email.value,
-    "password": password.value    
+    "password": password.value,
+    "avatar": formData  
 }
 formData.append('avatar', avatar.files[0]);
 formData.append('data',JSON.stringify(data));
@@ -72,7 +73,7 @@ const settings = {
 
 fetch("https://geek-on.herokuapp.com/usuarios/registro", settings)
 .then(res => {
-    //console.log(res);
+    console.log(res);
     return res.json();
 })
 .then(info => {
@@ -85,9 +86,7 @@ fetch("https://geek-on.herokuapp.com/usuarios/registro", settings)
         aPaterno.value = "";
         aMaterno.value = "";
         email.value = "";
-        password.value = "";
-        materno.value = ""
-
+        password.value = "";        
     }
     console.log(info);
 }).catch(error => {
